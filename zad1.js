@@ -12,6 +12,8 @@ person.map(n=>{
     let a =n.indexOf(' ')
     let dlugosc= n.length
     console.log(n.slice(0,a) )
+    let imie=n.slice(0,a)
+    let naz=n.slice(a+1,dlugosc)
     console.log(n.slice(0,a).length )
     console.log(n.slice(a+1,dlugosc) )
     console.log(n.slice(a+1,dlugosc).length )
@@ -28,11 +30,31 @@ person.map(n=>{
         SecName: xdlNazwiska,
       })
       var text = document.createTextNode(xdlImienia +" ");
-      var text1 = document.createTextNode(xdlNazwiska );
+      var text1 = document.createTextNode(xdlNazwiska +"   ");
+      var textXXX =xdlImienia +" "+ xdlNazwiska 
+      var textzImionami = n.slice(0,a) 
+      var textzNazw = n.slice(a+1,dlugosc)
     // let xNameOfPersone = document.getElementById('name')
     var el = document.createElement("li");
+    var el2 = document.createElement("li");
+    let przyciskPokarz=document.createElement('button')
     document.getElementById("name").appendChild(el);
     el.appendChild(text);          
-    el.appendChild(text1);  
+    el.appendChild(text1); 
+    el.appendChild(przyciskPokarz) 
+    przyciskPokarz.innerHTML= "  Pokarz "
+    przyciskPokarz.addEventListener('click', function(){
+        // el.style.display="none"
+        el.innerText=" "
+        el.innerText= textzImionami + " " + textzNazw
+        let przyciskX=document.createElement('button')
+        el.appendChild(przyciskX)
+        przyciskX.innerHTML= " Powrót do X "
+            przyciskX.addEventListener('click', function(){
+                el.innerText=" "
+                el.innerText= textXXX+ "  "
+                el.appendChild(przyciskPokarz)                 
+         })
 
+    })
 })
